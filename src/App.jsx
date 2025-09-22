@@ -6,11 +6,33 @@ import './App.css'
 import { Col, Container, Row } from 'react-bootstrap'
 import ListCategories from './component/ListCategories'
 import Hasil from './component/Hasil'
+import {API_URL} from "./utils/constant"
+import axios from 'axios'
 
-function App() {
+import React, { Component } from 'react'
 
-  return (
-    <div className="App">
+export default class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      menus: []
+    }
+  }
+  componentDidMount(){
+    axios 
+    .get(API_URL + "products")
+    .then((res)=>{
+      const menus = res.data
+      this.setState({menus})
+    })
+    .catch((error)=>{
+      console.log("Error yaa", error)
+    })
+  }
+  render() {
+    console.log("menus: ", this.state.menus)
+    return (
+      <div className="App">
       <NavbarComponent />
       <div className='mt-3'>
         <Container fluid>
@@ -25,7 +47,6 @@ function App() {
         </Container>
       </div>
     </div>
-  )
+    )
+  }
 }
-
-export default App
