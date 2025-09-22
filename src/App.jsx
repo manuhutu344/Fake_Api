@@ -30,7 +30,7 @@ export default class App extends Component {
     })
   }
   render() {
-    console.log("menus: ", this.state.menus)
+    const {menus} = this.state
     return (
       <div className="App">
       <NavbarComponent />
@@ -41,6 +41,15 @@ export default class App extends Component {
           <Col>
             <h4><strong>Daftar Produk</strong></h4>
             <hr />
+            <Row>
+              {
+                menus && menus.map((menu)=>(
+                  <>
+                  <h2>{menu.nama}</h2>
+                  </>
+                ))
+              }
+            </Row>
           </Col>
           <Hasil />
         </Row>
