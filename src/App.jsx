@@ -10,6 +10,7 @@ import {API_URL} from "./utils/constant"
 import axios from 'axios'
 
 import React, { Component } from 'react'
+import Menus from './component/Menus'
 
 export default class App extends Component {
   constructor(props){
@@ -44,9 +45,7 @@ export default class App extends Component {
             <Row>
               {
                 menus && menus.map((menu)=>(
-                  <>
-                  <h2>{menu.nama}</h2>
-                  </>
+                  <Menus key={menu.id} menu={menu} />
                 ))
               }
             </Row>
