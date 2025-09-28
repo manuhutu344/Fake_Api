@@ -6,7 +6,7 @@ import { numberWithCommas } from '../utils/utils';
 function Menus({menu}) {
   return (
     <Col md={4} xs={6} className='mb-4'>
-    <Card>
+    <Card className='shadow'>
       <Card.Img variant="top" src={"assets/images/"+menu.category.nama.toLowerCase()+"/"+menu.gambar} />
       <Card.Body>
         <Card.Title>{menu.nama}</Card.Title>
