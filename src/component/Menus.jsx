@@ -9,7 +9,7 @@ function Menus({menu}) {
     <Card className='shadow'>
       <Card.Img variant="top" src={"assets/images/"+menu.category.nama.toLowerCase()+"/"+menu.gambar} />
       <Card.Body>
-        <Card.Title>{menu.nama}</Card.Title>
+        <Card.Title>{menu.nama} ({menu.kode})</Card.Title>
         <Card.Text>
           Rp.{numberWithCommas(menu.harga)}
         </Card.Text>
