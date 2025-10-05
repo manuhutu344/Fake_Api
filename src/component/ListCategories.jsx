@@ -24,17 +24,17 @@ componentDidMount(){
     })
   }
   render() {
-    console.log(this.state.categories)
+    const {categories} = this.state
     return (
      <Col md={2} className='mt-2'>
       <h4><strong>Daftar Kategori</strong></h4>
       <hr />
       <ListGroup>
-      <ListGroup.Item>Cras justo odio</ListGroup.Item>
-      <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-      <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-      <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-      <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+        {
+          categories && categories.map((category)=>(
+            <ListGroup.Item>{category.nama}</ListGroup.Item>
+          ))
+        }
     </ListGroup>
      </Col>
     )
