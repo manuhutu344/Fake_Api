@@ -1,8 +1,15 @@
 import axios from 'axios'
 import { API_URL } from '../utils/constant'
-
 import { Component } from 'react'
+import { FaUtensils,FaCoffee,FaCheese } from "react-icons/fa"
 import { Col, ListGroup } from 'react-bootstrap'
+
+const Icon = ({nama}) =>{
+  if(nama === "Makanan") return <FaUtensils className='mt-2'/>
+  if(nama === "Minuman") return <FaCoffee className='mt-2'/>
+  if(nama === "Cemilan") return <FaCheese className='mt-2'/>
+  return <FaUtensils className='mt-2'/>
+}
 
 export default class ListCategories extends Component {
   constructor(props) {
@@ -32,7 +39,7 @@ componentDidMount(){
       <ListGroup>
         {
           categories && categories.map((category)=>(
-            <ListGroup.Item>{category.nama}</ListGroup.Item>
+            <ListGroup.Item key={category.id}><h5><Icon nama={category.nama} />{category.nama}</h5></ListGroup.Item>
           ))
         }
     </ListGroup>
