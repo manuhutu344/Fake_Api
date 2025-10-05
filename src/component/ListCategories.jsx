@@ -5,10 +5,10 @@ import { FaUtensils,FaCoffee,FaCheese } from "react-icons/fa"
 import { Col, ListGroup } from 'react-bootstrap'
 
 const Icon = ({nama}) =>{
-  if(nama === "Makanan") return <FaUtensils className='mt-2'/>
-  if(nama === "Minuman") return <FaCoffee className='mt-2'/>
-  if(nama === "Cemilan") return <FaCheese className='mt-2'/>
-  return <FaUtensils className='mt-2'/>
+  if(nama === "Makanan") return <FaUtensils className='mr-2'/>
+  if(nama === "Minuman") return <FaCoffee />
+  if(nama === "Cemilan") return <FaCheese className='mr-2'/>
+  return <FaUtensils className='mr-2'/>
 }
 
 export default class ListCategories extends Component {
@@ -32,6 +32,7 @@ componentDidMount(){
   }
   render() {
     const {categories} = this.state
+    const {changeCategory, categoriyangDipilih} = this.props
     return (
      <Col md={2} className='mt-2'>
       <h4><strong>Daftar Kategori</strong></h4>
@@ -39,7 +40,7 @@ componentDidMount(){
       <ListGroup>
         {
           categories && categories.map((category)=>(
-            <ListGroup.Item key={category.id}><h5><Icon nama={category.nama} />{category.nama}</h5></ListGroup.Item>
+            <ListGroup.Item key={category.id} onClick={()=>changeCategory(category.nama)}><h5><Icon nama={category.nama} />{category.nama}</h5></ListGroup.Item>
           ))
         }
     </ListGroup>
